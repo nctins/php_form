@@ -3,9 +3,9 @@ include ("../lib/PHPMailer-5.2.26/class.smtp.php");
 include ("../lib/PHPMailer-5.2.26/class.phpmailer.php");
 
 function sendMail($title, $content, $nTo, $mTo,$diachicc=''){
-    $nFrom = 'Freetuts.net';
-    $mFrom = 'xxxx@gmail.com';  //dia chi email cua ban
-    $mPass = 'passlamatkhau';       //mat khau email cua ban
+    $nFrom = 'admin';
+    $mFrom = 'mailfortest113@gmail.com';  //dia chi email cua ban
+    $mPass = 'abc123xyz';       //mat khau email cua ban
     $mail             = new PHPMailer();
     $body             = $content;
     $mail->IsSMTP();
@@ -30,7 +30,7 @@ function sendMail($title, $content, $nTo, $mTo,$diachicc=''){
     $mail->MsgHTML($body);
     $address = $mTo;
     $mail->AddAddress($address, $nTo);
-    $mail->AddReplyTo('info@freetuts.net', 'Freetuts.net');
+    $mail->AddReplyTo('mailfortest113@gmail.com', 'admin');
     if(!$mail->Send()) {
         return 0;
     } else {

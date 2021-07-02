@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['username'])){
+    header('location: index.php');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +63,9 @@
                                 $link = "resetpassword.php?email=".$encmail."&token=".$token;
                                 $content = "<a href='$link'> bấm vào đây để đổi mật khẩu</a>";
                                 $title = "đổi mật khầu";
-                                $issend = sendMail($title,$content,'', $email,'');
-                                if($issend) echo ' <p style="color: whitesmoke"> đã gửi mail </p> ';
+                                $nTo="email được gởi từ admin";
+                                $issend = sendMail($title,$content,$nTo, $email,'');
+                                if($issend==1) echo ' <p style="color: whitesmoke"> đã gửi mail </p> ';
                                 else echo ' <p style="color: whitesmoke"> chưa gửi được mail </p> ';
 
                             }
