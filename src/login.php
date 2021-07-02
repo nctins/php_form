@@ -68,6 +68,8 @@ session_start();
                                 $row = mysqli_fetch_assoc($query);
                                 $_SESSION['username'] = $row['username'];
                                 echo '<p style="color: whitesmoke"> đăng nhập thành công</p>';
+                                header('location: index.php');
+                                exit();
                             }
                             else{
                                 echo '<p style="color: whitesmoke"> tên đăng nhập hoặc mật khẩu chưa đúng</p>';
