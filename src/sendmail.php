@@ -2,7 +2,7 @@
 include ("../lib/PHPMailer-5.2.26/class.smtp.php");
 include ("../lib/PHPMailer-5.2.26/class.phpmailer.php");
 
-function sendMail($title, $content, $nTo, $mTo,$diachicc=''){
+function sendMail($title, $content, $nTo, $mTo, $diachicc=''){
     $nFrom = 'admin';
     $mFrom = 'mailfortest113@gmail.com';  //dia chi email cua ban
     $mPass = 'abc123xyz';       //mat khau email cua ban
@@ -30,7 +30,7 @@ function sendMail($title, $content, $nTo, $mTo,$diachicc=''){
     $mail->MsgHTML($body);
     $address = $mTo;
     $mail->AddAddress($address, $nTo);
-    $mail->AddReplyTo('mailfortest113@gmail.com', 'admin');
+    $mail->AddReplyTo('', 'admin');
     if(!$mail->Send()) {
         return 0;
     } else {

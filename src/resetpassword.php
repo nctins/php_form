@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>signup Page</title>
+    <title>reset password</title>
     <meta charset="utf-8">
     <meta lang="vi">
 
@@ -39,8 +39,8 @@
                     if(isset($_GET['email']) && isset($_GET['token'])){
                         $email=base64_decode($_GET['email']);
                         $token=$_GET['token'];
-                        $sql = "SELECT * FROM `reset_password` WHERE m_email='$email'AND m_token='$token' ";
-                        $query= mysqli_query($connect, $sql);
+                        $sql = "SELECT * FROM `reset_pass` WHERE m_email='$email'AND m_token='$token' ";
+                        $query = mysqli_query($connect,$sql);
                         $num= mysqli_num_rows($query);
                         if($num!=0){
                             if(isset($_POST['reset'])){

@@ -8,7 +8,7 @@ if(isset($_SESSION['username'])){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>signup Page</title>
+    <title>forgot password</title>
     <meta charset="utf-8">
     <meta lang="vi">
 
@@ -60,12 +60,15 @@ if(isset($_SESSION['username'])){
                                 $insert_query = mysqli_query($connect,$insert_sql);
                                 $encmail = base64_encode($email);
                                 // gửi mail
-                                $link = "resetpassword.php?email=".$encmail."&token=".$token;
+                                $link = "http://localhost/testPHP/php_form/src/resetpassword.php?email=".$encmail."&token=".$token;
                                 $content = "<a href='$link'> bấm vào đây để đổi mật khẩu</a>";
                                 $title = "đổi mật khầu";
-                                $nTo="email được gởi từ admin";
-                                $issend = sendMail($title,$content,$nTo, $email,'');
-                                if($issend==1) echo ' <p style="color: whitesmoke"> đã gửi mail </p> ';
+//                                $nTo="email được gởi từ admin";
+                                $issend = sendMail($title,$content,$email, $email,'');
+                                if($issend==1){
+                                    echo ' <p style="color: whitesmoke"> đã gửi mail </p> ';
+//                                    echo $email;
+                                }
                                 else echo ' <p style="color: whitesmoke"> chưa gửi được mail </p> ';
 
                             }
